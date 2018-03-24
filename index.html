@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ajax 1</title>
+</head>
+<body>
+
+  <button id="button">Get TextFile</button>
+
+  <script>
+    document.getElementById('button').addEventListener('click', loadText);
+
+    function loadText(){
+      //console.log('button clicked');
+
+      //create XHR Object
+
+
+
+      var xhr = new XMLHttpRequest();
+       // open - type , url/file, async
+       console.log(xhr);
+
+       xhr.open('GET', 'sample.txt', true);
+
+
+       xhr.onprogress = function(){
+
+       }
+       xhr.onload = function(){
+         if(this.status == 200){
+           //console.log(this.responseText);
+           document.getElementById('text').innerHTML = this.responseText;
+         } else if(this.status == 404){
+           document.getElementById('text').innerHTML = 'Not Fund';
+
+         }
+       }
+
+      // xhr.onreadystatechnge = function(){
+      //   console.log('READYSTATE: ', xhr.readyState);
+      //   if(this.readyState == 4 && this.status == 200){
+      //     //console.log(this.responseText);
+      //   }
+      // }
+
+
+      xhr.onerror = function(){
+        console.log('Request error..');
+      }
+      //sends request
+       xhr.send();
+    }
+
+  </script>
+
+</body>
+</html>
