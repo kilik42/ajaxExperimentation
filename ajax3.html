@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ajax3 external api</title>
+</head>
+<body>
+
+  <button id="button">load github users</button>
+  <br>
+  <br>
+  <h1>github users</h1>
+
+  <div id="users"></div>
+
+<script>
+  document.getElementById('button').addEventListener('click', loadUsers);
+
+
+  //load github Meteor.users
+  function loadUsers(){
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://api.github.com/users', true);
+
+    xht.onload = function(){
+      
+    }
+  }
+</script>
+
+
+</body>
+</html>
